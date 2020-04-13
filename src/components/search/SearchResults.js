@@ -9,7 +9,7 @@ class SearchResults extends React.Component {
     return (
       <div id="search-results">
         {searchResults.hits.map((hit) => (
-          <div key={hit.objectID} className="card search-result">
+          <div key={hit.objectID} className="neu-btn mb-3">
             <Link to={`/ingredient/${hit.objectID}`}>
               {hit.longDescription} ({hit.foodGroup})
             </Link>

@@ -1,0 +1,17 @@
+.inline-inputs {
+  display: flex;
+
+  .inline-input-group {
+    flex: 1 1 40%;
+
+    &:not(:last-of-type) {
+      margin-right: 12px;
+    }
+  }
+}
+
+.bold-label {
+  color: $body_text;
+  font-weight: 600;
+  margin-bottom: 8px;
+}

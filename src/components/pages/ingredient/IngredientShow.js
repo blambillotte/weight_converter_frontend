@@ -1,6 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getIngredient, clearIngredient } from "../../../action_creators/ingredients_creators";
+import {
+  getIngredient,
+  clearIngredient,
+} from "../../../action_creators/ingredients_creators";
+import { clearConverstionInputValues } from "../../../action_creators/conversion_form_creators";
+import UserConversions from "./UserConversions";
+import ConversionsList from "./ConversionsList";
 
 class IngredientShow extends React.Component {
   componentDidMount() {
@@ -14,27 +20,9 @@ class IngredientShow extends React.Component {
   }
 
   componentWillUnmount() {
-    const { clearIngredient } = this.props;
+    const { clearIngredient, clearConverstionInputValues } = this.props;
     clearIngredient();
-  }
-
-  $conversions() {
-    const { ingredient } = this.props;
-    const conversions = ingredient.conversions || [];
-    if (!conversions.length) return <div>No conversions for this item</div>;
-
-    return (
-      <div className="conversions-list">
-        {conversions.map((conversion) => {
-          const { measure_description, measure_amount, weight_in_grams, id } = conversion;
-          return (
-            <div key={id} className="conversion">
-              {measure_amount} {measure_description} = {weight_in_grams} grams
-            </div>
-          );
-        })}
-      </div>
-    );
+    clearConverstionInputValues();
   }
 
   render() {
@@ -43,10 +31,12 @@ class IngredientShow extends React.Component {
     return (
       <div id="ingredient-show">
         <div className="container">
-          <h2>{ingredient.longDescription}</h2>
-          <p>Food Group: {ingredient.foodGroup}</p>
-          <hr />
-          {this.$conversions()}
+          <div className="neu-card mb-4 mt-4 center-content">
+            <h2>{ingredient.longDescription}</h2>
+            <p>Food Group: {ingredient.foodGroup}</p>
+            <ConversionsList />
+            <UserConversions />
+          </div>
         </div>
       </div>
     );
@@ -63,4 +53,8 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getIngredient, clearIngredient })(IngredientShow);
+export default connect(mapStateToProps, {
+  getIngredient,
+  clearIngredient,
+  clearConverstionInputValues,
+})(IngredientShow);

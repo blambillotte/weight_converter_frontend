@@ -1,0 +1,17 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $blue;
+}
+
+.body-bold {
+  font-weight: 600;
+}
+
+.large-heavy {
+  font-size: 28px;
+  color: $body-text;
+  // font-weight: 700;
+}

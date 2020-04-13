@@ -1,0 +1,22 @@
+#ingredient-show {
+  #conversions-list {
+    margin-bottom: 24px;
+  }
+
+  #user-conversion {
+    padding-top: 24px;
+    border-top: 2px solid $light_grey;
+
+    .converted-amt-display {
+      margin-top: 24px;
+      padding: 12px;
+      border: 1px solid $light_grey;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: inset 0px 0px 14px rgba(0, 0, 0, 0.1);
+      span {
+        display: block;
+      }
+    }
+  }
+}

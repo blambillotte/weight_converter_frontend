@@ -5,13 +5,15 @@ import SearchInput from "./SearchInput";
 import "./Search.scss";
 
 const searchClient = algoliasearch("8OMU3L8VBF", "00f66a568848e687831d3ea33f95d80b");
-const BLACKLISTED_FOOD_GROUPS = [300, 600, 800];
+const IGNORED_FOOD_GROUPS = [300, 600, 800, 2100, 2200, 3600];
 
 class Search extends React.Component {
   buildFilter() {
-    const filters = BLACKLISTED_FOOD_GROUPS.map((foodGroup) => `foodGroupNumber!=${foodGroup}`);
-    const joinedFilters = filters.join(" OR ");
-    return `(${joinedFilters})`;
+    const filters = IGNORED_FOOD_GROUPS.map(
+      (foodGroup) => `foodGroupNumber!=${foodGroup}`
+    );
+    const joinedFilters = filters.join(",");
+    return joinedFilters;
   }
 
   render() {
