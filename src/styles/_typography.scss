@@ -12,6 +12,26 @@ h5 {
 
 .large-heavy {
   font-size: 28px;
+  line-height: 1;
   color: $body-text;
-  // font-weight: 700;
+  font-weight: 600;
+
+  &.blue {
+    color: $bright_blue;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 20px;
+  }
+}
+
+.medium-heavy {
+  font-size: 20px;
+  line-height: 1.5;
+  color: $body-text;
+  font-weight: 600;
+
+  @media (max-width: 576px) {
+    font-size: 18px;
+  }
 }

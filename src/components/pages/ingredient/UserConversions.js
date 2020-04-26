@@ -5,6 +5,7 @@ import {
   setConversionType,
 } from "../../../action_creators/conversion_form_creators";
 import VolumeToWeight from "./VolumeToWeight";
+import WeightToVolume from "./WeightToVolume";
 
 class UserConversions extends React.Component {
   changeConversionType(ev, conversionType) {
@@ -19,7 +20,7 @@ class UserConversions extends React.Component {
     const selectedClass = converstionType === btnKey ? "neu-btn--selected" : "";
     return (
       <button
-        className={`neu-btn ${selectedClass}`}
+        className={`neu-btn neu-btn--indicator ${selectedClass}`}
         onClick={(ev) => this.changeConversionType(ev, btnKey)}
       >
         {btnText}
@@ -33,7 +34,7 @@ class UserConversions extends React.Component {
     } = this.props;
 
     if (converstionType === "vtw") return <VolumeToWeight />;
-    return <VolumeToWeight />; // todo
+    return <WeightToVolume />;
   }
 
   render() {
@@ -42,7 +43,7 @@ class UserConversions extends React.Component {
 
     return (
       <div id="user-conversion">
-        <p className="bold-label">Conversion type:</p>
+        <p className="bold-label">Conversion type</p>
         <div className="neu-btn-group">
           {this.$conversionBtn("Volume to Weight", "vtw")}
           {this.$conversionBtn("Weight to Volume", "wtv")}

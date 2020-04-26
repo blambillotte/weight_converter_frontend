@@ -15,3 +15,75 @@
   font-weight: 600;
   margin-bottom: 8px;
 }
+
+.neu-btn {
+  background: $background_grey;
+  color: $grey;
+  font-weight: 600;
+  box-shadow: -2px -2px 5px white, 3px 3px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  display: block;
+
+  &.circle-btn {
+    border-radius: 50%;
+  }
+
+  &.blue {
+    background: #2e89ff;
+    box-shadow: 20px 20px 60px #2774d9, -20px -20px 60px #359eff;
+  }
+
+  &.neu-btn--indicator:after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    right: 16px;
+    top: 15px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px;
+  }
+
+  &.neu-btn--selected {
+    box-shadow: inset -2px -2px 5px white, inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+    color: $bright_blue;
+    outline: 0px;
+
+    &.neu-btn--indicator:after {
+      background-color: red;
+      box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #d51d1d 0 -1px 9px,
+        rgba(255, 0, 0, 0.5) 0 0px 6px;
+    }
+  }
+
+  &:focus {
+    outline: 0 !important;
+  }
+
+  &:hover {
+    background-color: darken($background_grey, 1%);
+  }
+
+  a {
+    color: $blue;
+  }
+}
+
+.neu-btn-group {
+  display: flex;
+  border-radius: 10px;
+  margin-bottom: 24px;
+
+  .neu-btn {
+    flex: 1 1 50%;
+    margin-right: 8px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}

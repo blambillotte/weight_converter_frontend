@@ -8,14 +8,47 @@
     border-top: 2px solid $light_grey;
 
     .converted-amt-display {
-      margin-top: 24px;
-      padding: 12px;
+      margin: 24px 0;
       border: 1px solid $light_grey;
       border-radius: 10px;
       text-align: center;
       box-shadow: inset 0px 0px 14px rgba(0, 0, 0, 0.1);
-      span {
+      align-items: center;
+      position: relative;
+
+      .amt-display-header {
+        border-bottom: 1px solid $light_grey;
+        padding-bottom: 8px;
+        color: $blue;
+        background-color: darken($background_grey, 4%);
+        padding: 12px;
+      }
+
+      .amt-eql {
+        padding-left: 4px;
+      }
+
+      .volume-display,
+      .weight-display {
         display: block;
+        padding: 12px;
+
+        &:not(:last-of-type) {
+          border-bottom: 1px solid $light_grey;
+        }
+      }
+
+      .circle-btn {
+        position: absolute;
+        font-size: 20px;
+        height: 30px;
+        width: 30px;
+        padding: 0;
+        right: 8px;
+        top: 8px;
+        background-color: $green;
+        box-shadow: 0px 0px 6px 2px #518edec9;
+        color: white;
       }
     }
   }

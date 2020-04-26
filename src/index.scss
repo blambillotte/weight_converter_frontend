@@ -1,7 +1,4 @@
-@import "./styles/variables";
-@import "./styles/ingredient_show";
-@import "./styles/typography";
-@import "./styles/forms";
+@import "./styles/all";
 
 body {
   margin: 0;
@@ -22,64 +19,6 @@ code {
   border-radius: 30px;
   box-shadow: -6px -6px 20px rgba(255, 255, 255, 1), 6px 6px 20px rgba(0, 0, 0, 0.1);
   max-width: 600px;
-}
-
-.neu-btn {
-  background: #ebf5fc;
-  color: $grey;
-  font-weight: 600;
-  box-shadow: -2px -2px 5px white, 3px 3px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  padding: 12px 24px;
-  border: none;
-  cursor: pointer;
-  position: relative;
-
-  &.neu-btn--selected {
-    box-shadow: inset -2px -2px 5px white, inset 3px 3px 5px rgba(0, 0, 0, 0.1);
-    color: $blue;
-    outline: 0px;
-
-    &:after {
-      content: "";
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: red;
-      right: 16px;
-      top: 15px;
-      box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #d51d1d 0 -1px 9px,
-        rgba(255, 0, 0, 0.5) 0 0px 3px;
-    }
-  }
-
-  &:focus {
-    outline: 0 !important;
-  }
-
-  &:hover {
-    background-color: darken(#ebf5fc, 1%);
-  }
-
-  a {
-    color: $blue;
-  }
-}
-
-.neu-btn-group {
-  display: flex;
-  border-radius: 10px;
-  margin-bottom: 10px;
-
-  .neu-btn {
-    flex: 1 1 50%;
-    margin-right: 8px;
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-  }
 }
 
 .center-content {

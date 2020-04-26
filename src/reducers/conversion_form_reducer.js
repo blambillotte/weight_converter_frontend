@@ -7,6 +7,8 @@ import {
 const INITIAL_STATE = {
   measureAmountInput: 1,
   measureDescriptionInput: "",
+  weightInput: 100,
+  weightUnitInput: "grams",
   converstionType: "vtw",
 };
 

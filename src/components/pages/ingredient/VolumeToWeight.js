@@ -11,7 +11,7 @@ import {
   gramsToOunces,
 } from "../../../utils/conversion_utils";
 
-class UserConversions extends React.Component {
+class VolumeToWeight extends React.Component {
   constructor(props) {
     super(props);
     this.setFormState = this.setFormState.bind(this);
@@ -76,13 +76,12 @@ class UserConversions extends React.Component {
     const amountInOz = gramsToOunces(amountInGrams);
     return (
       <div className="converted-amt-display body-bold">
-        <span>
-          {amountDisplay} {conversionDetails.measure_description}
-        </span>
-        <span>=</span>
-        <span className="large-heavy">
-          {amountInGrams} grams / {amountInOz} oz
-        </span>
+        <div className="large-heavy amt-display-header">
+          {amountDisplay} {conversionDetails.measure_description} converts to:
+        </div>
+        <div className="medium-heavy weight-display">{amountInGrams} grams</div>
+        <div className="medium-heavy weight-display">{amountInOz} oz</div>
+        {/* <button className="neu-btn circle-btn">&#43;</button> */}
       </div>
     );
   }
@@ -159,5 +158,5 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, { setConversionInputValues, setConversionType })(
-  UserConversions
+  VolumeToWeight
 );
