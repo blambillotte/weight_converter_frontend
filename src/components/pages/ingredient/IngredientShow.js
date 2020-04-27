@@ -8,6 +8,7 @@ import { clearConverstionInputValues } from "../../../action_creators/conversion
 import UserConversions from "./UserConversions";
 import ConversionsList from "./ConversionsList";
 import Header from "../../Header";
+import LoadingBlock from "../../utils/LoadingBlock";
 
 class IngredientShow extends React.Component {
   componentDidMount() {
@@ -27,7 +28,11 @@ class IngredientShow extends React.Component {
   }
 
   $loading() {
-    return <div className="neu-card mb-4 mt-4 center-content" />;
+    return (
+      <div className="neu-card mb-4 mt-4 center-content">
+        <LoadingBlock itemCount={5} />
+      </div>
+    );
   }
 
   $noConversion() {
@@ -49,19 +54,24 @@ class IngredientShow extends React.Component {
     );
   }
 
-  render() {
+  $content() {
     const { ingredient, loading } = this.props;
     if (loading || !ingredient) return this.$loading();
+
+    return (
+      <div className="neu-card mb-4 mt-4 center-content">
+        <h2>{ingredient.longDescription}</h2>
+        <p>Food Group: {ingredient.foodGroup}</p>
+        {this.$conversionDetails()}
+      </div>
+    );
+  }
+
+  render() {
     return (
       <div id="ingredient-show">
         <Header />
-        <div className="container">
-          <div className="neu-card mb-4 mt-4 center-content">
-            <h2>{ingredient.longDescription}</h2>
-            <p>Food Group: {ingredient.foodGroup}</p>
-            {this.$conversionDetails()}
-          </div>
-        </div>
+        <div className="container">{this.$content()}</div>
       </div>
     );
   }

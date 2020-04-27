@@ -1,0 +1,30 @@
+.loading-block {
+  .loading-item {
+    height: 32px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    animation: shimmer 3s infinite linear;
+    background: linear-gradient(to right, #eff1f3 4%, #e2e2e2 25%, #eff1f3 36%);
+    background-size: 500px 100%;
+  }
+
+  .loading-block-wrapper {
+    width: 0px;
+    animation: fullView 0.5s forwards linear;
+  }
+
+  @keyframes fullView {
+    100% {
+      width: 100%;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 500px 0;
+    }
+  }
+}

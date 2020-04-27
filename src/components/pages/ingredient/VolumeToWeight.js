@@ -118,7 +118,7 @@ class VolumeToWeight extends React.Component {
 
             <div className="inline-input-group">
               <label htmlFor="measure-description-input" className="bold-label">
-                Measurement Type
+                Measurement
               </label>
               <select
                 id="measure-description-input"
