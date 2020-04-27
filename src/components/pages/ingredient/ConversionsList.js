@@ -30,8 +30,8 @@ class ConversionsList extends React.Component {
 
     return (
       <div id="conversions-list">
-        <h5>Available Conversions</h5>
-        <table className="table table-sm table-hover">
+        <div className="conversions-header medium-heavy">Available Conversions</div>
+        <table className="table table-sm table-hover neu-table">
           <thead>
             <tr>
               <th scope="col">Volume</th>

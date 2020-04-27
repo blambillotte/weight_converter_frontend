@@ -40,7 +40,6 @@ class IngredientShow extends React.Component {
 
   $conversionDetails() {
     const { ingredient } = this.props;
-    console.log(ingredient.conversions);
     if (!!ingredient & !ingredient.conversions[0]) return this.$noConversion();
     return (
       <div className="conversion-details">
