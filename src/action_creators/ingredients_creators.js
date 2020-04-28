@@ -1,4 +1,8 @@
-import { GET_INGREDIENT_SUCCESS, LOAD_INGREDIENT, CLEAR_INGREDIENT } from "../action_types";
+import {
+  GET_INGREDIENT_SUCCESS,
+  LOAD_INGREDIENT,
+  CLEAR_INGREDIENT,
+} from "../action_types";
 import { db } from "../services/firebase";
 
 function getIngredientSuccess(data) {
@@ -27,7 +31,11 @@ export function getIngredient(objectId) {
       .doc(objectId)
       .get()
       .then((ingredient) => {
-        dispatch(getIngredientSuccess(ingredient.data()));
+        if (ingredient.exists) {
+          dispatch(getIngredientSuccess(ingredient.data()));
+        } else {
+          console.error("no ingredient found");
+        }
       })
       .catch((err) => {
         console.error("Error getting ingredient", err);

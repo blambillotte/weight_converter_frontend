@@ -29,8 +29,8 @@ class ConversionsList extends React.Component {
     if (!conversions.length) return this.$noConversions();
 
     return (
-      <div id="conversions-list">
-        <div className="conversions-header medium-heavy">Available Conversions</div>
+      <div id="conversions-list" className="neu-container">
+        <div className="neu-container--header medium-heavy">Available Conversions</div>
         <table className="table table-sm table-hover neu-table">
           <thead>
             <tr>

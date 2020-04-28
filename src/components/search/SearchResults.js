@@ -12,9 +12,12 @@ class SearchResults extends React.Component {
           <Link
             to={`/ingredient/${hit.objectID}`}
             key={hit.objectID}
-            className="neu-btn mb-3"
+            className="neu-btn mb-3 full-width"
           >
-            {hit.longDescription} ({hit.foodGroup})
+            <div className="result-description body-bold">{hit.longDescription} </div>
+            <div className="result-food-group body-regular">
+              Food Group: {hit.foodGroup}
+            </div>
           </Link>
         ))}
       </div>

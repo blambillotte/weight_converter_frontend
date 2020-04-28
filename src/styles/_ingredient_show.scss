@@ -1,17 +1,18 @@
 #ingredient-show {
-  #conversions-list {
-    margin-bottom: 24px;
-    box-shadow: inset 0px 0px 14px rgba(0, 0, 0, 0.1);
-    border: 1px solid $light_grey;
-    border-radius: 10px;
+  .card-content {
+    animation: fadeIn 1s;
+  }
 
-    .conversions-header {
-      padding: 12px;
-      background-color: darken($background_grey, 2%);
-      border-top-right-radius: 10px;
-      border-top-left-radius: 10px;
+  .ingredient-show-header {
+    margin-bottom: 8px;
+    text-align: right;
+
+    .neu-btn {
+      padding: 8px 20px;
     }
+  }
 
+  #conversions-list {
     th,
     td {
       padding: 12px 20px;
@@ -71,6 +72,15 @@
         box-shadow: 0px 0px 6px 2px #518edec9;
         color: white;
       }
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 }

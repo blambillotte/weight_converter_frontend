@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   getIngredient,
   clearIngredient,
@@ -60,9 +61,16 @@ class IngredientShow extends React.Component {
 
     return (
       <div className="neu-card mb-4 mt-4 center-content">
-        <h2>{ingredient.longDescription}</h2>
-        <p>Food Group: {ingredient.foodGroup}</p>
-        {this.$conversionDetails()}
+        <div className="card-content">
+          <div className="ingredient-show-header">
+            <Link to="/" className="neu-btn">
+              Back
+            </Link>
+          </div>
+          <h2>{ingredient.longDescription}</h2>
+          <p>Food Group: {ingredient.foodGroup}</p>
+          {this.$conversionDetails()}
+        </div>
       </div>
     );
   }
