@@ -15,9 +15,9 @@ class UserConversions extends React.Component {
 
   $conversionBtn(btnText, btnKey) {
     const {
-      conversionForm: { converstionType },
+      conversionForm: { conversionType },
     } = this.props;
-    const selectedClass = converstionType === btnKey ? "neu-btn--selected" : "";
+    const selectedClass = conversionType === btnKey ? "neu-btn--selected" : "";
     return (
       <button
         className={`neu-btn neu-btn--indicator ${selectedClass}`}
@@ -30,10 +30,10 @@ class UserConversions extends React.Component {
 
   $conversionForm() {
     const {
-      conversionForm: { converstionType },
+      conversionForm: { conversionType },
     } = this.props;
 
-    if (converstionType === "vtw") return <VolumeToWeight />;
+    if (conversionType === "vtw") return <VolumeToWeight />;
     return <WeightToVolume />;
   }
 

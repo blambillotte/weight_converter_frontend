@@ -4,7 +4,7 @@ import {
   getIngredient,
   clearIngredient,
 } from "../../../action_creators/ingredients_creators";
-import { clearConverstionInputValues } from "../../../action_creators/conversion_form_creators";
+import { clearConversionInputValues } from "../../../action_creators/conversion_form_creators";
 import UserConversions from "./UserConversions";
 import ConversionsList from "./ConversionsList";
 import Header from "../../Header";
@@ -22,9 +22,9 @@ class IngredientShow extends React.Component {
   }
 
   componentWillUnmount() {
-    const { clearIngredient, clearConverstionInputValues } = this.props;
+    const { clearIngredient, clearConversionInputValues } = this.props;
     clearIngredient();
-    clearConverstionInputValues();
+    clearConversionInputValues();
   }
 
   $loading() {
@@ -90,5 +90,5 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps, {
   getIngredient,
   clearIngredient,
-  clearConverstionInputValues,
+  clearConversionInputValues,
 })(IngredientShow);

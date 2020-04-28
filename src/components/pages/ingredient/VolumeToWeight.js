@@ -63,7 +63,7 @@ class VolumeToWeight extends React.Component {
     return this.formatNumber(value);
   }
 
-  $converetedAmtDisplay() {
+  $convertedAmtDisplay() {
     const {
       conversionForm: { measureDescriptionInput, measureAmountInput },
       conversions,
@@ -138,7 +138,7 @@ class VolumeToWeight extends React.Component {
             </div>
           </div>
         </form>
-        {this.$converetedAmtDisplay()}
+        {this.$convertedAmtDisplay()}
       </div>
     );
   }

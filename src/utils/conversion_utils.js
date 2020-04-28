@@ -49,7 +49,8 @@ export const getConversionById = (conversions, id) => {
 
 export const getMeasureAmountDisplayByValue = (value) => {
   const obj = MEASURE_AMOUNT_OPTIONS.find((option) => option.value === parseFloat(value));
-  return obj.label;
+  if (!!obj) return obj.label;
+  else return 1;
 };
 
 export const gramsToOunces = (grams) => {

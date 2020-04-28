@@ -8,6 +8,8 @@
     .conversions-header {
       padding: 12px;
       background-color: darken($background_grey, 2%);
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
     }
 
     th,
@@ -39,6 +41,8 @@
         color: $blue;
         background-color: darken($background_grey, 2%);
         padding: 12px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
       }
 
       .amt-eql {

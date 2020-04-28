@@ -1,7 +1,7 @@
 import {
   SET_CONVERSION_INPUT_VALUES,
   CLEAR_CONVERSION_INPUT_VALUES,
-  SET_CONVERSTION_TYPE,
+  SET_CONVERSION_TYPE,
 } from "../action_types";
 
 const INITIAL_STATE = {
@@ -9,7 +9,7 @@ const INITIAL_STATE = {
   measureDescriptionInput: "",
   weightInput: 100,
   weightUnitInput: "grams",
-  converstionType: "vtw",
+  conversionType: "vtw",
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -19,8 +19,8 @@ export default function (state = INITIAL_STATE, action) {
         ...state,
         ...action.payload.data,
       };
-    case SET_CONVERSTION_TYPE:
-      return { ...state, converstionType: action.payload.converstionType };
+    case SET_CONVERSION_TYPE:
+      return { ...state, conversionType: action.payload.conversionType };
     case CLEAR_CONVERSION_INPUT_VALUES:
       return INITIAL_STATE;
     default:

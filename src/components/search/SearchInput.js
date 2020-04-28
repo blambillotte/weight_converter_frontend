@@ -1,18 +1,41 @@
 import React from "react";
 import { connectAutoComplete } from "react-instantsearch-dom";
 import SearchResults from "./SearchResults";
+import { debounce } from "../../utils/debounce";
 
 class SearchInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onInputChange = this.onInputChange.bind(this);
+  }
+
+  componentDidMount() {
+    const { defaultRefinement, refine } = this.props;
+    if (!!defaultRefinement) return refine(defaultRefinement);
+  }
+
+  onInputChange(ev) {
+    const { refine, setSearchInputValue } = this.props;
+    const value = ev.currentTarget.value;
+    debounce(setSearchInputValue(value), 500);
+    return refine(value);
+  }
+
   render() {
-    const { currentRefinement, refine } = this.props;
+    const { currentRefinement } = this.props;
     return (
       <div id="search-input">
-        <form className="form-group">
+        <form
+          className="form-group"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <input
             type="search"
             className="form-control"
             value={currentRefinement}
-            onChange={(event) => refine(event.currentTarget.value)}
+            onChange={this.onInputChange}
             placeholder="Type to search for an ingredient"
           />
         </form>

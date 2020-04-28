@@ -1,7 +1,7 @@
 import {
   SET_CONVERSION_INPUT_VALUES,
   CLEAR_CONVERSION_INPUT_VALUES,
-  SET_CONVERSTION_TYPE,
+  SET_CONVERSION_TYPE,
 } from "../action_types";
 
 export function setConversionInputValues(data) {
@@ -13,12 +13,12 @@ export function setConversionInputValues(data) {
 
 export function setConversionType(type) {
   return {
-    type: SET_CONVERSTION_TYPE,
-    payload: { converstionType: type },
+    type: SET_CONVERSION_TYPE,
+    payload: { conversionType: type },
   };
 }
 
-export function clearConverstionInputValues() {
+export function clearConversionInputValues() {
   return {
     type: CLEAR_CONVERSION_INPUT_VALUES,
   };
