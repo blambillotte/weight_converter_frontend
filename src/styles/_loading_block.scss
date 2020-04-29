@@ -4,8 +4,14 @@
     margin-bottom: 30px;
     border-radius: 4px;
     animation: shimmer 3s infinite linear;
-    background: linear-gradient(to right, #eff1f3 4%, #e2e2e2 25%, #eff1f3 36%);
+    background: linear-gradient(
+      to right,
+      darken($background_grey, 2%) 4%,
+      darken($background_grey, 2.5%) 25%,
+      darken($background_grey, 1%) 36%
+    );
     background-size: 500px 100%;
+    box-shadow: -6px -6px 20px rgba(255, 255, 255, 1), 6px 6px 20px rgba(0, 0, 0, 0.1);
 
     &:first-of-type {
       width: 40%;
