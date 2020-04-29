@@ -13,19 +13,25 @@ import LoadingBlock from "../../utils/LoadingBlock";
 
 class IngredientShow extends React.Component {
   componentDidMount() {
-    const {
-      match: {
-        params: { id },
-      },
-      getIngredient,
-    } = this.props;
-    getIngredient(id);
+    this.getFetcher();
   }
 
   componentWillUnmount() {
     const { clearIngredient, clearConversionInputValues } = this.props;
     clearIngredient();
     clearConversionInputValues();
+  }
+
+  getFetcher() {
+    const {
+      match: {
+        params: { ndbNumber },
+      },
+      getIngredient,
+    } = this.props;
+
+    if (isNaN(ndbNumber)) return; // TODO: 404
+    getIngredient(parseInt(ndbNumber));
   }
 
   $loading() {

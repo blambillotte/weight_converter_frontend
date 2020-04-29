@@ -10,8 +10,7 @@ function routes() {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/ingredient/:id" component={IngredientShow}>
-      </Route>
+      <Route path="/ingredients/:ndbNumber" component={IngredientShow} />
     </Switch>
   );
 }

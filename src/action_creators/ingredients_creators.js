@@ -24,21 +24,23 @@ export function clearIngredient() {
   };
 }
 
-export function getIngredient(objectId) {
+export function getIngredient(ndbNumber) {
   return function (dispatch) {
     dispatch(loadIngredient());
     db.collection("foods")
-      .doc(objectId)
+      .where("ndbNumber", "==", ndbNumber)
       .get()
-      .then((ingredient) => {
-        if (ingredient.exists) {
-          dispatch(getIngredientSuccess(ingredient.data()));
-        } else {
-          console.error("no ingredient found");
+      .then((snapshot) => {
+        if (snapshot.empty) {
+          console.log("No ingredient found.");
+          // TODO: 404
+          return;
         }
+        const firstResult = snapshot.docs[0].data();
+        dispatch(getIngredientSuccess(firstResult));
       })
       .catch((err) => {
-        console.error("Error getting ingredient", err);
+        console.log("Error getting ingredient", err);
       });
   };
 }

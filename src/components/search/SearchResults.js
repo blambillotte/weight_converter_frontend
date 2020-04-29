@@ -10,7 +10,7 @@ class SearchResults extends React.Component {
       <div id="search-results">
         {searchResults.hits.map((hit) => (
           <Link
-            to={`/ingredient/${hit.objectID}`}
+            to={`/ingredients/${hit.ndbNumber}`}
             key={hit.objectID}
             className="neu-btn mb-3 full-width"
           >
