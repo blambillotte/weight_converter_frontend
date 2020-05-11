@@ -36,7 +36,7 @@ class IngredientShow extends React.Component {
 
   $loading() {
     return (
-      <div className="neu-card mb-4 mt-4 center-content">
+      <div className="uk-card uk-card-default">
         <LoadingBlock itemCount={5} />
       </div>
     );
@@ -61,21 +61,36 @@ class IngredientShow extends React.Component {
     );
   }
 
+  $cardHeader() {
+    const { ingredient } = this.props;
+
+    return (
+      <div className="uk-card-header">
+        <div className="uk-flex uk-flex-between">
+          <div className="uk-width-expand">
+            <h2>{ingredient.longDescription}</h2>
+            <p>Food Group: {ingredient.foodGroup}</p>
+          </div>
+          <div className="uk-width-auto">
+            <Link to="/" className="uk-button uk-button-default">
+              Back
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   $content() {
     const { ingredient, loading } = this.props;
     if (loading || !ingredient) return this.$loading();
 
     return (
-      <div className="neu-card mb-4 mt-4 center-content">
+      <div className="uk-card uk-card-default uk-card-large uk-width-1-1 uk-margin-top">
         <div className="card-content">
-          <div className="ingredient-show-header">
-            <Link to="/" className="neu-btn">
-              Back
-            </Link>
-          </div>
-          <h2>{ingredient.longDescription}</h2>
-          <p>Food Group: {ingredient.foodGroup}</p>
-          {this.$conversionDetails()}
+          {this.$cardHeader()}
+
+          <div className="uk-card-body">{this.$conversionDetails()}</div>
         </div>
       </div>
     );
@@ -85,7 +100,7 @@ class IngredientShow extends React.Component {
     return (
       <div id="ingredient-show">
         <Header />
-        <div className="container">{this.$content()}</div>
+        <div className="uk-container uk-container-small">{this.$content()}</div>
       </div>
     );
   }

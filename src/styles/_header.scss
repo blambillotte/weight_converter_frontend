@@ -3,8 +3,12 @@
   top: 0;
   width: 100%;
   height: $header_ht;
-  padding: 8px;
-  background-color: $background_grey;
+  background-color: lighten($blue, 4%);
   z-index: 10;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    color: white;
+    margin-bottom: 0;
+  }
 }

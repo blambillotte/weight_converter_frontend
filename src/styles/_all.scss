@@ -1,6 +1,11 @@
 @import "./variables";
 
-@import "./neu_base";
+@import "../../node_modules/uikit/src/scss/variables-theme.scss";
+@import "../../node_modules/uikit/src/scss/mixins-theme.scss";
+@import "uikit/src/scss/uikit-theme.scss";
+
+@import "./overrides";
+
 @import "./ingredient_show";
 @import "./typography";
 @import "./forms";

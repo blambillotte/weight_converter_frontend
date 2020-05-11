@@ -26,7 +26,6 @@ class VolumeToWeight extends React.Component {
     if (conversions.length && !measureDescriptionInput) {
       return setConversionInputValues({
         measureDescriptionInput: conversions[0].id,
-        measureAmountInput: conversions[0].measure_amount,
       });
     }
   }
@@ -75,8 +74,8 @@ class VolumeToWeight extends React.Component {
     const amountInGrams = this.getConvertedValue();
     const amountInOz = gramsToOunces(amountInGrams);
     return (
-      <div className="converted-amt-display body-bold">
-        <div className="large-heavy amt-display-header">
+      <div className="converted-amt-display body-bold uk-card uk-box-shadow-medium">
+        <div className="large-heavy amt-display-header uk-card-primary">
           {amountDisplay} {conversionDetails.measure_description} converts to:
         </div>
         <div className="medium-heavy weight-display">{amountInGrams} grams</div>
@@ -93,49 +92,45 @@ class VolumeToWeight extends React.Component {
 
     return (
       <div id="volume-to-weight">
-        <form>
-          <div className="inline-inputs">
-            <div className="inline-input-group">
-              <label htmlFor="measure-amount-input" className="bold-label">
-                Amount
-              </label>
-              <select
-                id="measure-amount-input"
-                name="measure-amount-input"
-                className="form-control"
-                value={conversionForm.measureAmountInput}
-                onChange={(ev) =>
-                  this.setFormState("measureAmountInput", ev.target.value)
-                }
-              >
-                {MEASURE_AMOUNT_OPTIONS.map((input) => (
-                  <option key={`input:${input.value}`} value={input.value}>
-                    {input.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+        <form className="uk-grid-small" data-uk-grid>
+          <div className="uk-width-1-2@s">
+            <label htmlFor="measure-amount-input" className="bold-label">
+              Amount
+            </label>
+            <select
+              id="measure-amount-input"
+              name="measure-amount-input"
+              className="uk-input"
+              value={conversionForm.measureAmountInput}
+              onChange={(ev) => this.setFormState("measureAmountInput", ev.target.value)}
+            >
+              {MEASURE_AMOUNT_OPTIONS.map((input) => (
+                <option key={`input:${input.value}`} value={input.value}>
+                  {input.label}
+                </option>
+              ))}
+            </select>
+          </div>
 
-            <div className="inline-input-group">
-              <label htmlFor="measure-description-input" className="bold-label">
-                Measurement
-              </label>
-              <select
-                id="measure-description-input"
-                name="measure-description-input"
-                className="form-control"
-                value={conversionForm.measureDescriptionInput}
-                onChange={(ev) =>
-                  this.setFormState("measureDescriptionInput", ev.target.value)
-                }
-              >
-                {measurementInputs.map((input) => (
-                  <option key={`input:${input.value}`} value={input.value}>
-                    {input.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+          <div className="uk-width-1-2@s">
+            <label htmlFor="measure-description-input" className="bold-label">
+              Measurement
+            </label>
+            <select
+              id="measure-description-input"
+              name="measure-description-input"
+              className="uk-input"
+              value={conversionForm.measureDescriptionInput}
+              onChange={(ev) =>
+                this.setFormState("measureDescriptionInput", ev.target.value)
+              }
+            >
+              {measurementInputs.map((input) => (
+                <option key={`input:${input.value}`} value={input.value}>
+                  {input.label}
+                </option>
+              ))}
+            </select>
           </div>
         </form>
         {this.$convertedAmtDisplay()}

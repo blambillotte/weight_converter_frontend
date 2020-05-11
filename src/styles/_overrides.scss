@@ -1,0 +1,23 @@
+.uk-tab {
+  button {
+    display: block;
+    text-align: center;
+    padding: 5px 10px;
+    color: #999;
+    border: none;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    transition: color 0.1s ease-in-out;
+    cursor: pointer;
+    background: none;
+
+    &:focus {
+      outline: 0 !important;
+    }
+  }
+
+  .uk-active > button {
+    color: #333;
+    border-bottom: 1px solid #1e87f0;
+  }
+}

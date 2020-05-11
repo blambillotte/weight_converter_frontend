@@ -39,6 +39,38 @@ export const MEASURE_AMOUNT_OPTIONS = [
     label: "2",
     value: 2,
   },
+  {
+    label: "2 1/4",
+    value: 2.25,
+  },
+  {
+    label: "2 1/2",
+    value: 2.5,
+  },
+  {
+    label: "2 3/4",
+    value: 2.75,
+  },
+  {
+    label: "3",
+    value: 3,
+  },
+  {
+    label: "3 1/4",
+    value: 3.25,
+  },
+  {
+    label: "3 1/2",
+    value: 3.5,
+  },
+  {
+    label: "3 3/4",
+    value: 3.75,
+  },
+  {
+    label: "4",
+    value: 4,
+  },
 ];
 
 export const getConversionById = (conversions, id) => {

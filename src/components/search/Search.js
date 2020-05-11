@@ -22,16 +22,18 @@ class Search extends React.Component {
 
     return (
       <div id="search">
-        <div className="container">
-          <div className="neu-card mb-4 mt-4 center-content">
-            <h2>Start typing to search an ingredient</h2>
-            <InstantSearch searchClient={searchClient} indexName="foods">
-              <Configure hitsPerPage={50} numericFilters={this.buildFilter()} />
-              <SearchInput
-                defaultRefinement={inputValue}
-                setSearchInputValue={setSearchInputValue}
-              />
-            </InstantSearch>
+        <div className="uk-container uk-container-small">
+          <div className="uk-card uk-card-default uk-card-large uk-width-1-1 uk-margin-top">
+            <div className="uk-card-body">
+              <h2>Start typing to search an ingredient</h2>
+              <InstantSearch searchClient={searchClient} indexName="foods">
+                <Configure hitsPerPage={50} numericFilters={this.buildFilter()} />
+                <SearchInput
+                  defaultRefinement={inputValue}
+                  setSearchInputValue={setSearchInputValue}
+                />
+              </InstantSearch>
+            </div>
           </div>
         </div>
       </div>

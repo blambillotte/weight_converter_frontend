@@ -26,14 +26,14 @@ class SearchInput extends React.Component {
     return (
       <div id="search-input">
         <form
-          className="form-group"
+          className="uk-form-stacked"
           onSubmit={(e) => {
             e.preventDefault();
           }}
         >
           <input
             type="search"
-            className="form-control"
+            className="uk-input"
             value={currentRefinement}
             onChange={this.onInputChange}
             placeholder="Type to search for an ingredient"

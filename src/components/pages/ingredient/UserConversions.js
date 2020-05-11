@@ -17,14 +17,11 @@ class UserConversions extends React.Component {
     const {
       conversionForm: { conversionType },
     } = this.props;
-    const selectedClass = conversionType === btnKey ? "neu-btn--selected" : "";
+    const selectedClass = conversionType === btnKey ? "uk-active" : "";
     return (
-      <button
-        className={`neu-btn neu-btn--indicator ${selectedClass}`}
-        onClick={(ev) => this.changeConversionType(ev, btnKey)}
-      >
-        {btnText}
-      </button>
+      <li className={selectedClass}>
+        <button onClick={(ev) => this.changeConversionType(ev, btnKey)}>{btnText}</button>
+      </li>
     );
   }
 
@@ -43,11 +40,11 @@ class UserConversions extends React.Component {
 
     return (
       <div id="user-conversion">
-        <p className="bold-label">Conversion type</p>
-        <div className="neu-btn-group">
+        <p className="medium-heavy">Conversion type</p>
+        <ul data-uk-tab>
           {this.$conversionBtn("Volume to Weight", "vtw")}
           {this.$conversionBtn("Weight to Volume", "wtv")}
-        </div>
+        </ul>
         {this.$conversionForm()}
       </div>
     );
